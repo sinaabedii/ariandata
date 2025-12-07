@@ -8,13 +8,10 @@ import {
   Calendar, 
   Clock, 
   ArrowLeft, 
-  Share2, 
-  Bookmark,
   Facebook,
   Twitter,
   Linkedin,
   Link2,
-  ChevronRight,
   Tag
 } from 'lucide-react';
 

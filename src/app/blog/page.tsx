@@ -9,7 +9,6 @@ import {
   Clock, 
   ArrowRight, 
   Search, 
-  Tag,
   TrendingUp,
   Sparkles,
   ChevronRight

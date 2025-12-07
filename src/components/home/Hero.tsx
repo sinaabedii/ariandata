@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { ArrowRight, Play, Sparkles, CheckCircle2, Zap, Shield } from 'lucide-react';
+import { ArrowRight, Play, CheckCircle2, Zap, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AIAnimation from '@/json/Artificial Intelligence.json';
 

@@ -11,7 +11,6 @@ import {
   Twitter, 
   Github,
   Instagram,
-  ArrowRight,
   Send,
   CheckCircle
 } from 'lucide-react';
