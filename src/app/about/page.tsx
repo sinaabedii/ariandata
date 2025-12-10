@@ -1,15 +1,12 @@
-import { Metadata } from 'next';
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { Target, Eye, Heart, ArrowRight, Award, Users, Globe, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Target, Eye, Heart, ArrowRight, Award, Users, Sparkles } from 'lucide-react';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Card from '@/components/ui/Card';
 import FAQ from '@/components/about/FAQ';
-
-export const metadata: Metadata = {
-  title: 'About Us | Arian Data',
-  description: 'Learn about Arian Data - our mission, vision, and the team behind our innovative AI and software solutions.',
-};
 
 const values = [
   {
@@ -47,23 +44,54 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-primary-950 dark:via-background-dark dark:to-primary-900" />
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-secondary-400/20 dark:bg-secondary-500/10 rounded-full blur-3xl" />
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute top-1/4 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-secondary-400/20 dark:bg-secondary-500/10 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{ scale: [1, 1.3, 1], y: [0, 30, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+            className="absolute bottom-1/4 left-1/4 w-64 sm:w-80 h-64 sm:h-80 bg-accent-cyan/20 dark:bg-accent-cyan/10 rounded-full blur-3xl"
+          />
         </div>
 
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-800/10 dark:bg-secondary-500/10 mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-primary-800 dark:text-secondary-400" />
+              <span className="text-sm font-medium text-primary-800 dark:text-secondary-400">About Our Company</span>
+            </motion.div>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            >
               <span className="text-primary-950 dark:text-white">Pioneering the Future of</span>
               <br />
-              <span className="gradient-text">Intelligent Software</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              <span className="bg-gradient-to-r from-primary-800 via-secondary-600 to-accent-cyan bg-clip-text text-transparent">
+                Intelligent Software
+              </span>
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+            >
               We are Arian Data - a passionate team of engineers, data scientists, and innovators 
               dedicated to transforming businesses through the power of artificial intelligence.
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
@@ -118,28 +146,41 @@ export default function AboutPage() {
       <section className="section-padding bg-gray-50 dark:bg-primary-950/50">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="p-10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-800 to-secondary-600 flex items-center justify-center mb-6">
-                <Target className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary-950 dark:text-white mb-4">Our Mission</h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                To empower businesses worldwide with accessible, powerful, and ethical AI solutions 
-                that drive innovation, efficiency, and sustainable growth. We believe technology should 
-                amplify human potential, not replace it.
-              </p>
-            </Card>
-            <Card className="p-10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary-500 to-accent-cyan flex items-center justify-center mb-6">
-                <Eye className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary-950 dark:text-white mb-4">Our Vision</h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                To become the global standard for enterprise AI solutions, known for our commitment 
-                to innovation, customer success, and responsible AI development. We envision a world 
-                where intelligent technology is a force for good.
-              </p>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-8 sm:p-10 h-full">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-800 to-secondary-600 flex items-center justify-center mb-6">
+                  <Target className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-primary-950 dark:text-white mb-4">Our Mission</h3>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                  To empower businesses worldwide with accessible, powerful, and ethical AI solutions 
+                  that drive innovation, efficiency, and sustainable growth. We believe technology should 
+                  amplify human potential, not replace it.
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <Card className="p-8 sm:p-10 h-full">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary-500 to-accent-cyan flex items-center justify-center mb-6">
+                  <Eye className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-primary-950 dark:text-white mb-4">Our Vision</h3>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                  To become the global standard for enterprise AI solutions, known for our commitment 
+                  to innovation, customer success, and responsible AI development. We envision a world 
+                  where intelligent technology is a force for good.
+                </p>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -154,14 +195,21 @@ export default function AboutPage() {
           />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value) => (
-              <div key={value.title} className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-primary-800/10 dark:bg-secondary-500/10 flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-8 h-8 text-primary-800 dark:text-secondary-400" />
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center group"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-primary-800/10 dark:bg-secondary-500/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-gradient-to-br group-hover:from-primary-800 group-hover:to-secondary-600 transition-all duration-300">
+                  <value.icon className="w-8 h-8 text-primary-800 dark:text-secondary-400 group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="text-xl font-bold text-primary-950 dark:text-white mb-3">{value.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400">{value.description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
