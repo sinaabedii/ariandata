@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeading from '@/components/ui/SectionHeading';
+import TestimonialForm from './TestimonialForm';
 
 const testimonials = [
   {
@@ -198,6 +199,11 @@ export default function Testimonials() {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Testimonial Form Button */}
+        <div className="mt-10 sm:mt-12 flex justify-center">
+          <TestimonialForm />
         </div>
       </div>
 

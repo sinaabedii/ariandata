@@ -4,9 +4,6 @@ import Features from '@/components/home/Features';
 import Stats from '@/components/home/Stats';
 import HowWeWork from '@/components/home/HowWeWork';
 import NeuralNetwork from '@/components/home/NeuralNetwork';
-import AIPlayground from '@/components/home/AIPlayground';
-import BeforeAfterAI from '@/components/home/BeforeAfterAI';
-import LiveDashboard from '@/components/home/LiveDashboard';
 import Technologies from '@/components/home/Technologies';
 import TrustBadges from '@/components/home/TrustBadges';
 import Testimonials from '@/components/home/Testimonials';
@@ -22,9 +19,6 @@ export default function Home() {
       <Stats />
       <HowWeWork />
       <NeuralNetwork />
-      <AIPlayground />
-      <BeforeAfterAI />
-      <LiveDashboard />
       <Technologies />
       <TrustBadges />
       <Testimonials />
